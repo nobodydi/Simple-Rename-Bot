@@ -3,6 +3,8 @@ from pyrogram import Client, filters, enums
 from config import DOWNLOAD_LOCATION, CAPTION, ADMIN
 from main.utils import progress_message, humanbytes
 
+@Client.on_message(filters.private & (filters.document | filters.audio | filters.video))
+
 @Client.on_message(filters.private & filters.reply)
 async def refunc(client, message):
     reply_message = message.reply_to_message
